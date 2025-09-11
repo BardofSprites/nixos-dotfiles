@@ -33,6 +33,8 @@
         LC_TIME = "en_US.UTF-8";
     };
 
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
     # Configure keymap in X11
     services.xserver.xkb = {
         layout = "us";
@@ -60,9 +62,18 @@
 
     # List services that you want to enable:
 
-    services.xserver.enable = true;
+    nixpkgs.config.pulseaudio = true;
+
+    services.xserver = {
+        enable = true;
+        desktopManager = {
+            xterm.enable = false;
+            xfce.enable = true;
+        };
+    };
 
     services.displayManager.ly.enable = true;
+    services.displayManager.defaultSession = "xfce";
 
     services.openssh.enable = true;
     services.openssh.passwordAuthentication = true;
