@@ -3,7 +3,7 @@
 {
     imports =
         [ # Include the results of the hardware scan.
-        ./hardware-configuration.nix
+          ./hardware-configuration.nix
         ];
 
     # Bootloader.
@@ -54,6 +54,7 @@
         tmux
         git
         powertop
+        rsync
     ];
 
     fonts.packages = with pkgs; [
