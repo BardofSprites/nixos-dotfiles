@@ -17,6 +17,4 @@
     stow
   ];
 
-  programs.bash.enable = true;
-
 }

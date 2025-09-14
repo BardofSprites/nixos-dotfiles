@@ -34,6 +34,7 @@
     };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
 
     # Configure keymap in X11
     services.xserver.xkb = {
@@ -58,7 +59,9 @@
     ];
 
     bardConfig = {
-      desktop.enable = true;
+      syncthing.enable = true;
+      print.enable = true;
+      power.enable = true;
     };
 
     system.stateVersion = "25.05";

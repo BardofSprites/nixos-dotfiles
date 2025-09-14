@@ -1,11 +1,9 @@
 { config, pkgs, lib, inputs, ... }:
-
+with lib;
 let cfg = config.bardConfig.power;
 in {
-  options.bardConfig.power.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable power optimization for laptop";
+  options.bardConfig.power = {
+    enable = mkEnableOption "Enables bpower optimization (for laptop)";
   };
 
   config = lib.mkIf cfg.enable {

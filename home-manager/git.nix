@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, config, inputs, ... }:
 with lib;
 let
   cfg = config.bardConfig.git;
@@ -7,14 +7,16 @@ in {
     enable = mkEnableOption "Git and GitHub CLI";
   };
 
-  programs.git = {
-	  enable = true;
-	  userName = "BardofSprites";
-	  userEmail = "bard";
-	  extraConfig = {
-	    init = { defaultBranch = "master"; };
+  config = mkIf cfg.enable { 
+    programs.git = {
+	    enable = true;
+	    userName = "BardofSprites";
+	    userEmail = "bard";
+	    extraConfig = {
+	      init = { defaultBranch = "master"; };
+      };
     };
-  };
 
-  programs.gh.enable = true;
+    programs.gh.enable = true;
+  }; 
 }

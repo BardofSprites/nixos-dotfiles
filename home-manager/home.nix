@@ -4,7 +4,6 @@
   imports = [
     ./git.nix
     ./development.nix
-    ./i3.nix
   ];
   home.username = "bard";
   home.homeDirectory = "/home/bard";
@@ -20,6 +19,8 @@
 
     # files
     pcmanfm
+
+    # terminal
 
     # media
     mpv
@@ -41,4 +42,9 @@
 
   # audio
   nixpkgs.config.pulseaudio = true;
+
+  # enable modules
+  bardConfig = {
+    git.enable = true;
+  };
 }
