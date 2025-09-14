@@ -1,5 +1,10 @@
 { pkgs, config, ouputs, ...}: {
   imports = [
-    ./desktop.nix
+    ./polkit.nix
+    ./power.nix
+    ./print.nix
+    ./syncthing.nix
   ];
+
+  services.displayManager.ly.enable = true;
 }  
