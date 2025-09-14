@@ -19,14 +19,14 @@
           inherit system;
           modules = [
             ./hosts/pocket/configuration.nix
-            ./nixos
-            ./home-manager
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.bard = { imports = [ ./home-manager/home.nix ]; };
+                users.bard = {
+                  imports = [ ./home-manager/home.nix ];
+                };
               };
             }
           ];

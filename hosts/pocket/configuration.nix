@@ -4,6 +4,7 @@
     imports =
         [ # Include the results of the hardware scan.
           ./hardware-configuration.nix
+          ../../nixos
         ];
 
     # Bootloader.
@@ -11,8 +12,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     networking.hostName = "pocket";
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    # Enable networking
+        # Enable networking
     networking.networkmanager.enable = true;
 
     # Set your time zone.
@@ -44,7 +44,7 @@
     users.users.bard = {
         isNormalUser = true;
         description = "bard";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" "storage" ];
         packages = with pkgs; [];
     };
 
@@ -57,28 +57,9 @@
         rsync
     ];
 
-    fonts.packages = with pkgs; [
-        nerd-fonts.ubuntu-mono
-    ];
-
-    # List services that you want to enable:
-
-    nixpkgs.config.pulseaudio = true;
-
-    services.xserver = {
-        enable = true;
-        desktopManager = {
-            xterm.enable = false;
-            xfce.enable = true;
-        };
+    bardConfig = {
+      desktop.enable = true;
     };
-
-    services.displayManager.ly.enable = true;
-    services.displayManager.defaultSession = "xfce";
-
-    services.openssh.enable = true;
-    services.openssh.passwordAuthentication = true;
-
 
     system.stateVersion = "25.05";
 
