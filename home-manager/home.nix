@@ -4,14 +4,18 @@
   imports = [
     ./git.nix
     ./development.nix
+    ./theme.nix
   ];
   home.username = "bard";
   home.homeDirectory = "/home/bard";
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    # home manager
+    home-manager
+
     # the real OS
-	  emacs
+	emacs
 
     # www
     librewolf
@@ -21,11 +25,17 @@
     pcmanfm
 
     # terminal
+    rxvt-unicode
 
     # media
     mpv
     yt-dlp
     pavucontrol
+    alsa-utils
+
+    # xorg related
+    dmenu
+    xorg.xmodmap
 
     # fonts
     nerd-fonts.ubuntu-mono
@@ -46,5 +56,6 @@
   # enable modules
   bardConfig = {
     git.enable = true;
+    theme.enable = true;
   };
 }
