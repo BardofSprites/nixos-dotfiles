@@ -3,17 +3,27 @@ with lib;
 let cfg = config.bardConfig.power;
 in {
   options.bardConfig.power = {
-    enable = mkEnableOption "Enables bpower optimization (for laptop)";
+    enable = mkEnableOption "Enables power optimization (for laptop)";
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+      acpi
+    ];
+
+    powerManagement.enable = true;
+    services.thermald.enable = true; 
+    services.power-profiles-daemon.enable = true;
+
     # lid close
-    services.logind.lidSwitch = "poweroff";
+    services.logind.lidSwitch = "suspend";
     services.logind.lidSwitchExternalPower = "lock";
     services.logind.lidSwitchDocked = "ignore";
 
+    # power management
     services.tlp = {
-      enable = true;
+      enable = false;
       settings = {
         # CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
         CPU_DRIVER_OPMODE_ON_BAT="active"; # passive caps 400mhz
