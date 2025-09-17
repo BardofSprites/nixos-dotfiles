@@ -1,10 +1,12 @@
-{ config, pkgs, ...}:
+{ config, pkgs, zen-browser, ...}:
 
 {
   imports = [
     ./git.nix
     ./development.nix
-    ./theme.nix
+    ./vim.nix
+    # ./uni.nix
+    # ./theme.nix
   ];
   home.username = "bard";
   home.homeDirectory = "/home/bard";
@@ -15,27 +17,36 @@
     home-manager
 
     # the real OS
-	emacs
+    emacs
 
     # www
     librewolf
     firefox
+    (zen-browser.packages.${pkgs.stdenv.system}.default)
 
     # files
     pcmanfm
 
     # terminal
     rxvt-unicode
+    btop
+    pass
 
     # media
     mpv
     yt-dlp
     pavucontrol
     alsa-utils
+    feh
+    nsxiv
+    anki-bin
 
     # xorg related
     dmenu
     xorg.xmodmap
+    xclip
+    maim
+    picom
 
     # fonts
     nerd-fonts.ubuntu-mono
@@ -56,6 +67,7 @@
   # enable modules
   bardConfig = {
     git.enable = true;
-    theme.enable = true;
+    # theme.enable = true;
+    # uni.enable = true;
   };
 }

@@ -26,5 +26,4 @@ in {
 
     services.displayManager.defaultSession = "i3";
   };
-  };
 }

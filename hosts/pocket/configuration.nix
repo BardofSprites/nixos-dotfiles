@@ -62,6 +62,7 @@
       syncthing.enable = true;
       print.enable = true;
       power.enable = true;
+      i3.enable = true;
     };
 
     system.stateVersion = "25.05";

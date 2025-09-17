@@ -6,16 +6,9 @@ let
   cfg = config.bardConfig.uni;
 in {
   options.bardConfig.uni = {
-    enable = mkEnableOption "University networking and printing";
+    enable = mkEnableOption "University printing";
   };
 
   config = mkIf cfg.enable {
-    home.eduroam = {
-      enable = true;
-      institution = "University of Louisville";
-      username = "pass show uofl/email";
-      passwordCommand = "pass show uofl/eduroam";
-      forceWPA = false;
-    };
   };
 }

@@ -6,15 +6,15 @@
     python3
 
     # cli tools
+    fzf
     imagemagick
     ffmpeg-full
     curl
     wget
-
     direnv
     devenv
-    
     stow
+
   ];
 
 }
