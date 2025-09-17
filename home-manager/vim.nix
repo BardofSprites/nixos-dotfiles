@@ -57,11 +57,21 @@
 
       command! SearchNotes call BardSearchNotes()
 
+      function! BardGrep()
+        call fzf#vim#grep(
+              \ "rg --column --line-number --no-heading --color=always " .
+              \ "--hidden --glob '!**/.git/*' --glob '!**/.cache/*' " .
+              \ fzf#vim#with_preview(), 0)
+      endfunction
+
+	  command! SearchCWD call BardGrep()
+
       " KEYBINDS
       let mapleader = " "
-      nnoremap <Leader>fn :FindNotesFile<CR>
-      nnoremap <Leader>sn :SearchNotes<CR>
-      nnoremap <Leader>ff :Files<CR>
+      nnoremap <Leader>nf :FindNotesFile<CR>
+      nnoremap <Leader>ns :SearchNotes<CR>
+      nnoremap <Leader>g  :SearchCWD<CR>
+      nnoremap <Leader>f  :Files<CR>
       nnoremap <Leader>b  :Marks<CR>
     '';
   };
