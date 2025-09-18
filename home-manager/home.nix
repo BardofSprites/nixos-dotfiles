@@ -1,5 +1,7 @@
 { config, pkgs, zen-browser, ...}:
-
+let
+  bardDmenu = import ../packages/dmenu.nix { inherit pkgs; };
+in
 {
   imports = [
     ./git.nix
@@ -32,17 +34,18 @@
     btop
     pass
 
+    # suckless utilities
+    bardDmenu
+
     # media
     mpv
     yt-dlp
     pavucontrol
     alsa-utils
     feh
-    nsxiv
     anki-bin
 
     # xorg related
-    dmenu
     xorg.xmodmap
     xclip
     maim
