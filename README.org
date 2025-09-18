@@ -22,6 +22,7 @@ I have a image gallery on [[https://bardman.dev/technology/gallery][my website]]
   │       ├── configuration.nix # configuration file for laptop
   │       └── hardware-configuration.nix
   ├── nixos
+  │   ├── audio.nix # audio settings
   │   ├── default.nix # entry point for system level packages/services
   │   ├── i3.nix # window manager
   │   ├── polkit.nix # polkit permission stuff

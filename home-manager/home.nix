@@ -61,9 +61,6 @@
   # make fonts work
   fonts.fontconfig.enable = true;
 
-  # audio
-  nixpkgs.config.pulseaudio = true;
-
   # enable modules
   bardConfig = {
     git.enable = true;

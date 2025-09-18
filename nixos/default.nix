@@ -5,6 +5,7 @@
     ./print.nix
     ./syncthing.nix
     ./i3.nix
+    ./audio.nix
   ];
 
   services.displayManager.ly = {
@@ -14,7 +15,6 @@
     };
   };
 
-  
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
