@@ -11,6 +11,9 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    home.packages = with pkgs; [ dconf ];
+
     gtk = {
       enable = true;
 
