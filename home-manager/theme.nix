@@ -28,11 +28,6 @@ in
         name = "Adwaita";
         package = pkgs.adwaita-icon-theme;
       };
-
-      # Default font
-      # font = {
-      #   name = "Iosevka Nerd Font";
-      # };
     };
 
     qt = {
@@ -40,7 +35,6 @@ in
       platformTheme.name = "gtk";
       style.name = "gtk2";
     };
-
 
     home.sessionVariables = {
       GTK_THEME = "Materia-dark";

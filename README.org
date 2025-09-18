@@ -23,6 +23,7 @@ I have a image gallery on [[https://bardman.dev/technology/gallery][my website]]
   │       └── hardware-configuration.nix
   ├── nixos
   │   ├── audio.nix # audio settings
+  │   ├── dunst.nix # notification daemon
   │   ├── default.nix # entry point for system level packages/services
   │   ├── i3.nix # window manager
   │   ├── polkit.nix # polkit permission stuff

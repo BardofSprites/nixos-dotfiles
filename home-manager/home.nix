@@ -7,8 +7,9 @@ in
     ./git.nix
     ./development.nix
     ./vim.nix
+    ./dunst.nix
     # ./uni.nix
-    # ./theme.nix
+    ./theme.nix
   ];
   home.username = "bard";
   home.homeDirectory = "/home/bard";
@@ -58,7 +59,9 @@ in
     noto-fonts-cjk-sans
     noto-fonts-emoji
     noto-fonts-extra
-    
+
+    # icons
+    material-design-icons
   ];
 
   # make fonts work
@@ -67,7 +70,8 @@ in
   # enable modules
   bardConfig = {
     git.enable = true;
-    # theme.enable = true;
+    theme.enable = true;
+    dunst.enable = true;
     # uni.enable = true;
   };
 }
