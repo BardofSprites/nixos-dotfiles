@@ -8,6 +8,7 @@ in
     ./development.nix
     ./vim.nix
     ./dunst.nix
+    ./heavy-applications.nix
     # ./uni.nix
     ./theme.nix
   ];
@@ -72,6 +73,7 @@ in
     git.enable = true;
     theme.enable = true;
     dunst.enable = true;
+    heavy.enable = true;
     # uni.enable = true;
   };
 }
