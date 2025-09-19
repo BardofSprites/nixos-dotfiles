@@ -1,16 +1,28 @@
 { config, pkgs, lib, inputs, ... }:
 with lib;
-let cfg = config.bardConfig.power;
+let cfg = config.bardConfig.laptop;
 in {
-  options.bardConfig.power = {
-    enable = mkEnableOption "Enables power optimization (for laptop)";
+  options.bardConfig.laptop = {
+    enable = mkEnableOption "Laptop power management, touchpad, and more";
   };
 
   config = lib.mkIf cfg.enable {
+    # packages
     environment.systemPackages = with pkgs; [
       brightnessctl
       acpi
     ];
+
+    ############
+    # touchpad #
+    ############
+    services.xserver.libinput.enable = true;
+    # up should be up and down should be down
+    services.xserver.libinput.naturalScrolling = false;
+    # pressing two fingers in middle shouldn't be middle click
+    services.xserver.libinput.middleEmulation = false;
+    # bad
+    services.xserver.libinput.tapping = false;
 
     powerManagement.enable = true;
     services.thermald.enable = true; 
