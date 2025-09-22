@@ -1,6 +1,7 @@
 { config, pkgs, zen-browser, ...}:
 let
   bardDmenu = import ../packages/dmenu.nix { inherit pkgs; };
+  boomerPkg = import ../packages/boomer.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -57,6 +58,7 @@ in
     xclip
     maim
     picom
+    boomerPkg
 
     # fonts
     nerd-fonts.ubuntu-mono
