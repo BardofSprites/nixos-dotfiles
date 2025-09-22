@@ -1,7 +1,7 @@
 { pkgs, config, ouputs, ...}: {
   imports = [
     ./polkit.nix
-    ./power.nix
+    ./laptop.nix
     ./print.nix
     ./syncthing.nix
     ./i3.nix

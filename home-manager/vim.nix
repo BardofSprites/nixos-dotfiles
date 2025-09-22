@@ -27,49 +27,13 @@
       set modeline
       set nohlsearch
 
-      autocmd FileType org,outline setlocal nofoldenable
-
       vmap <C-c> "+yi
       vmap <C-x> "+c
       vmap <C-v> c<ESC>"+p
       imap <C-v> <ESC>"+pa
 
-      function! BardFindNotesFile()
-        let l:cmd = "find ~/Notes/denote -type f -name '*.org' " .
-              \ "! -path '*/.git/*' ! -path '*/.cache/*' | " .
-              \ "grep -E './[0-9]{8}T[0-9]{6}--.*\\.org$'"
-        call fzf#run(fzf#wrap({
-              \ 'source': l:cmd,
-              \ 'sink': 'e',
-              \ 'options': '--prompt "Notes> " --preview "cat {}"'
-              \ }))
-      endfunction
-
-      command! FindNotesFile call BardFindNotesFile()
-
-      function! BardSearchNotes()
-        call fzf#vim#grep(
-              \ "rg --column --line-number --no-heading --color=always " .
-              \ "--hidden --glob '!**/.git/*' --glob '!**/.cache/*' " .
-              \ "' ' ~/Notes/denote", 1,
-              \ fzf#vim#with_preview(), 0)
-      endfunction
-
-      command! SearchNotes call BardSearchNotes()
-
-      function! BardGrep()
-        call fzf#vim#grep(
-              \ "rg --column --line-number --no-heading --color=always " .
-              \ "--hidden --glob '!**/.git/*' --glob '!**/.cache/*' " .
-              \ fzf#vim#with_preview(), 0)
-      endfunction
-
-	  command! SearchCWD call BardGrep()
-
       " KEYBINDS
       let mapleader = " "
-      nnoremap <Leader>nf :FindNotesFile<CR>
-      nnoremap <Leader>ns :SearchNotes<CR>
       nnoremap <Leader>g  :SearchCWD<CR>
       nnoremap <Leader>f  :Files<CR>
       nnoremap <Leader>b  :Marks<CR>

@@ -61,7 +61,7 @@
     bardConfig = {
       syncthing.enable = true;
       print.enable = true;
-      power.enable = true;
+      laptop.enable = true;
       i3.enable = true;
     };
 

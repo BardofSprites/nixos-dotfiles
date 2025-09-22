@@ -16,13 +16,13 @@ in {
     ############
     # touchpad #
     ############
-    services.xserver.libinput.enable = true;
+    services.libinput.enable = true;
     # up should be up and down should be down
-    services.xserver.libinput.naturalScrolling = false;
+    services.libinput.touchpad.naturalScrolling = false;
     # pressing two fingers in middle shouldn't be middle click
-    services.xserver.libinput.middleEmulation = false;
+    services.libinput.touchpad.middleEmulation = false;
     # bad
-    services.xserver.libinput.tapping = false;
+    services.libinput.touchpad.tapping = false;
 
     powerManagement.enable = true;
     services.thermald.enable = true; 
