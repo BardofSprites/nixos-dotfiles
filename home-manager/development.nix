@@ -14,7 +14,9 @@
     direnv
     devenv
     stow
-
+    ripgrep
+    fd
+    tree
   ];
 
 }

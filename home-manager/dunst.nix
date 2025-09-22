@@ -8,6 +8,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [ libnotify ];
+
     services.dunst = {
       enable = true;
 

@@ -21,7 +21,7 @@ in
     home-manager
 
     # the real OS
-    emacs
+    emacs-gtk
 
     # www
     librewolf
@@ -30,6 +30,8 @@ in
 
     # files
     pcmanfm
+    gparted
+    baobab
 
     # terminal
     rxvt-unicode
@@ -38,6 +40,7 @@ in
 
     # suckless utilities
     bardDmenu
+    nsxiv
 
     # media
     mpv
@@ -46,6 +49,8 @@ in
     alsa-utils
     feh
     anki-bin
+    zip
+    unzip
 
     # xorg related
     xorg.xmodmap
