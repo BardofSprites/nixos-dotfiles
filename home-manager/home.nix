@@ -1,6 +1,7 @@
 { config, pkgs, zen-browser, ...}:
 let
   bardDmenu = import ../packages/dmenu.nix { inherit pkgs; };
+  bardSt = import ../packages/st.nix { inherit pkgs; };
   bardCoomer = import ../packages/coomer.nix { inherit pkgs; };
 in
 {
@@ -41,6 +42,7 @@ in
 
     # suckless utilities
     bardDmenu
+    bardSt
     nsxiv
 
     # media
