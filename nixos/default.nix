@@ -5,6 +5,8 @@
     ./print.nix
     ./syncthing.nix
     ./i3.nix
+    ./stumpwm.nix
+    ./xmonad.nix
     ./audio.nix
   ];
 

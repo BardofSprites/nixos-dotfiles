@@ -25,5 +25,9 @@ in {
         ];
       };
     };
+
+    environment.systemPackages = with pkgs; [
+      xmobar
+    ];
   };
 }

@@ -15,12 +15,7 @@ in {
         xterm.enable = false;
       };
       
-      windowManager.stumpwm = {
-        enable = true;
-        extraPackages = with pkgs; [
-          polybar # status bar
-        ];
-      };
+      windowManager.stumpwm.enable = true;
     };
   };
 }
