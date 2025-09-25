@@ -11,6 +11,7 @@ in
     ./vim.nix
     ./dunst.nix
     ./heavy-applications.nix
+    ./latex.nix
     # ./uni.nix
     ./theme.nix
   ];
@@ -84,6 +85,7 @@ in
     theme.enable = true;
     dunst.enable = true;
     heavy.enable = true;
+    latex.enable = true;
     # uni.enable = true;
   };
 }
