@@ -7,29 +7,38 @@ I have a image gallery on [[https://bardman.dev/technology/gallery][my website]]
 
 * Files
 #+begin_src sh
-  ./
-  ├── flake.lock  # honestly idk what this does
-  ├── flake.nix   # central point for all the modules, used for building
-  ├── home-manager # user related software and some nix managed configurations
-  │   ├── development.nix # common cli tools
-  │   ├── git.nix # my declarative git config
-  │   ├── home.nix # user related software like browser, emacs, terminal etc
-  │   ├── theme.nix # icon/theme settings for gtk/qt
-  │   ├── uni.nix # university printing
-  │   └── vim.nix # declarative vim configuration
-  ├── hosts
-  │   └── pocket # my ThinkPad T480s laptop
-  │       ├── configuration.nix # configuration file for laptop
-  │       └── hardware-configuration.nix
-  ├── nixos
-  │   ├── audio.nix # audio settings
-  │   ├── dunst.nix # notification daemon
-  │   ├── default.nix # entry point for system level packages/services
-  │   ├── i3.nix # window manager
-  │   ├── polkit.nix # polkit permission stuff
-  │   ├── power.nix # power management for laptop
-  │   ├── print.nix # print service setup
-  │   └── syncthing.nix # syncthing for syncing between devices
-  └── README.org
+    ./
+    ├── flake.lock  # honestly idk what this does
+    ├── flake.nix   # central point for all the modules, used for building
+    ├── home-manager # user related software and some nix managed configurations
+    │   ├── development.nix # common cli tools
+    │   ├── git.nix # my declarative git config
+    │   ├── heavy-applications.nix # stuff like libreoffice and kdenlive
+    │   ├── home.nix # user related software like browser, emacs, terminal etc
+    │   ├── latex.nix
+    │   ├── theme.nix # icon/theme settings for gtk/qt
+    │   ├── uni.nix # university printing
+    │   └── vim.nix # declarative vim configuration
+    ├── hosts
+    │   └── pocket # my ThinkPad T480s laptop
+    │       ├── configuration.nix # configuration file for laptop
+    │       └── hardware-configuration.nix
+    ├── nixos
+    │   ├── audio.nix # audio settings
+    │   ├── dunst.nix # notification daemon
+    │   ├── default.nix # entry point for system level packages/services
+    │   ├── i3.nix # window manager
+    │   ├── laptop.nix # laptop related settings for power/screen-lock
+    │   ├── polkit.nix # polkit permission stuff
+    │   ├── print.nix # print service setup
+    │   ├── stumpwm.nix # common lisp window manager
+    │   ├── syncthing.nix # syncthing for syncing between devices
+    │   └── xmonad.nix # haskell window manager
+    ├── packages # custom derivations that aren't on nixpkgs
+    │   ├── boomer.nix # tsoding's screen zoomer in nim (WIP)
+    │   ├── coomer.nix # c++ clone of boomer
+    │   ├── dmenu.nix # my dmenu fork
+    │   └── st.nix # my st fork
+    └── README.org # the file you are reading
 #+end_src
 
