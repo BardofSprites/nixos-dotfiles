@@ -12,13 +12,19 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "0hwcpk9z1kcf776210jap6zxxd6f31l4cwxgkwqnzinnbmzi078c";
   };
 
+
+  nativeBuildInputs = [
+    pkgs.pkg-config
+    pkgs.ncurses
+  ];
+
   buildInputs = [ 
-    xorg.libX11
-    xorg.libXft
-    xorg.libXrender
-    freetype
-    fontconfig
-    harfbuzz
+    pkgs.xorg.libX11
+    pkgs.xorg.libXft
+    pkgs.xorg.libXrender
+    pkgs.freetype
+    pkgs.fontconfig
+    pkgs.harfbuzz
   ];
 
   buildPhase = ''
@@ -40,9 +46,13 @@ pkgs.stdenv.mkDerivation rec {
   if [ -f st.1 ]; then
     sed "s/VERSION/${version}/g" < st.1 > $out/share/man/man1/st.1
     chmod 644 $out/share/man/man1/st.1
-    tic -sx st.info
   fi
-  '';
+
+  # install terminfo
+  mkdir -p $out/share/terminfo
+  tic -sx -o $out/share/terminfo st.info
+'';
+
 
   meta = with pkgs.lib; {
     description = "My fork of suckless terminal";

@@ -1,4 +1,3 @@
-# packages/coomer.nix
 { pkgs }:
 
 pkgs.stdenv.mkDerivation rec {
@@ -24,18 +23,17 @@ pkgs.stdenv.mkDerivation rec {
   ];
 
   buildPhase = ''
-    mkdir -p build
-    g++ $src -o build/coomer \
+    g++ coomer.cpp -o coomer \
       -lGL -lGLU -lX11 -lXrandr -lXext
   '';
 
   installPhase = ''
     mkdir -p $out/bin
-    cp build/coomer $out/bin/
+    cp coomer $out/bin/
   '';
 
   meta = with pkgs.lib; {
-    description = " Yet another zoomer application for Linux";
+    description = "Yet another zoomer application for Linux";
     platforms = platforms.linux;
   };
 }
