@@ -2,6 +2,7 @@
 let
   bardDmenu = import ../packages/dmenu.nix { inherit pkgs; };
   bardSt = import ../packages/st.nix { inherit pkgs; };
+  bardDwm = import ../packages/dwm.nix { inherit pkgs; };
   bardCoomer = import ../packages/coomer.nix { inherit pkgs; };
 in
 {
@@ -42,6 +43,7 @@ in
     pass
 
     # suckless utilities
+    bardDwm
     bardDmenu
     bardSt
     nsxiv
