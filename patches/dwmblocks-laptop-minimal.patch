@@ -1,0 +1,21 @@
+diff --git a/config.h b/config.h
+index a26673a..6e4abe9 100644
+--- a/config.h
++++ b/config.h
+@@ -1,11 +1,11 @@
+ //Modify this file to change what commands output to your statusbar, and recompile using the make command.
+ static const Block blocks[] = {
+     /*Icon*/    /*Command*/                     /*Update Interval*/     /*Update Signal*/
+-    {"", "~/.local/bin/scripts/status/memory",                  10,     1},
+-    {"", "~/.local/bin/scripts/status/internet",                10,     6},
+-    {"", "~/.local/bin/scripts/status/weather",                 10,     2},
+-    {"", "~/.local/bin/scripts/status/volume-pulseaudio",       1,      3},
+-    {"🎵 ", "~/.local/bin/scripts/status/music",               5,     10},
++    /* {"", "~/.local/bin/scripts/status/memory",                  10,     1}, */
++    /* {"", "~/.local/bin/scripts/status/internet",                10,     6}, */
++    /* {"", "~/.local/bin/scripts/status/weather",                 10,     2}, */
++    {"", "~/.local/bin/scripts/status/volume",                  1,      3},
++    /* {"", "~/.local/bin/scripts/status/music",                   5,      10}, */
+     {"", "~/.local/bin/scripts/status/battery.sh",              5,      7},
+     {"", "~/.local/bin/scripts/status/time-clock",              1,      4},
+ 
