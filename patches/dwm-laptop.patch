@@ -1,5 +1,5 @@
 diff --git a/config.h b/config.h
-index 5361325..3c729b1 100644
+index 5361325..76de3be 100644
 --- a/config.h
 +++ b/config.h
 @@ -17,7 +17,7 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
@@ -11,3 +11,15 @@ index 5361325..3c729b1 100644
  static char normbgcolor[]           = "#222222";
  static char normbordercolor[]       = "#444444";
  static char normfgcolor[]           = "#bbbbbb";
+@@ -220,6 +220,11 @@ static const Key keys[] = {
+     { 0, XF86XK_AudioLowerVolume,   spawn,      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%; kill -44 $(pidof dwmblocks)") },
+     { 0, XF86XK_AudioMicMute,       spawn,      SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
+ 
++    { MODKEY|ShiftMask,     XK_p,               spawn,  SHCMD("playerctl play-pause") },
++    { MODKEY|ShiftMask,     XK_bracketleft,     spawn,  SHCMD("playerctl previous") },
++    { MODKEY|ShiftMask,     XK_bracketright,    spawn,  SHCMD("playerctl next") },
++
++
+     { 0, XF86XK_AudioPrev,      spawn,      {.v = (const char*[]){ "playerctl", "previous", NULL } } },
+     { 0, XF86XK_AudioNext,      spawn,      {.v = (const char*[]){ "playerctl", "next", NULL } } },
+     { 0, XF86XK_AudioPause,     spawn,      {.v = (const char*[]){ "playerctl", "pause", NULL } } },
