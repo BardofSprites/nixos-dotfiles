@@ -36,7 +36,8 @@
       let mapleader = " "
       nnoremap <Leader>g  :SearchCWD<CR>
       nnoremap <Leader>f  :Files<CR>
-      nnoremap <Leader>b  :Marks<CR>
+      nnoremap <Leader>d  :Explore<CR>
+      nnoremap <Leader>b  :Buffers<CR>
     '';
   };
 }
