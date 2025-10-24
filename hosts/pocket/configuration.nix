@@ -61,9 +61,10 @@
 
     bardConfig = {
       syncthing.enable = true;
-      print.enable = true;
+      print.enable = false;
       laptop.enable = true;
       i3.enable = true;
+      fvwm.enable = false;
     };
 
     system.stateVersion = "25.05";

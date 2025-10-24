@@ -3,7 +3,7 @@ with lib;
 let
   cfg = config.bardConfig.fvwm;
 in {
-  options.bardConfig.i3 = {
+  options.bardConfig.fvwm = {
     enable = mkEnableOption "fvwm desktop";
   };
 
@@ -15,12 +15,7 @@ in {
         xterm.enable = false;
       };
       
-      windowManager.fvwm3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          rxvt-unicode # terminal
-        ];
-      };
+      windowManager.fvwm3.enable = true;
     };
   };
 }
