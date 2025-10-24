@@ -56,6 +56,7 @@
         git
         powertop
         rsync
+        bc
     ];
 
     bardConfig = {

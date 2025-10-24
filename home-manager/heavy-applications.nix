@@ -10,6 +10,11 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       libreoffice
+      kdePackages.kdenlive
+      discord
+      spotify
+      telegram-desktop
+      gimp
     ];
   };
 }

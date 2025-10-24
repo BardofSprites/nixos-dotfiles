@@ -21,12 +21,24 @@ in
   home.homeDirectory = "/home/bard";
   home.stateVersion = "25.05";
 
+  home.sessionPath = [
+    "$HOME/.local/bin/scripts"
+  ];
+
+  home.sessionVariables = {
+    PATH = "$HOME/.local/bin/scripts:$PATH";
+  };
+
   home.packages = with pkgs; [
-    # home manager
+    # nixos related packages
     home-manager
 
     # the real OS
     emacs-gtk
+    # emacs spellcheck
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.ru_RU
 
     # www
     librewolf
@@ -55,6 +67,7 @@ in
     yt-dlp
     pavucontrol
     alsa-utils
+    playerctl
     feh
     anki-bin
     zip
@@ -64,11 +77,11 @@ in
     xorg.xmodmap
     xclip
     maim
+    xdotool
     picom
     bardCoomer
 
     # fonts
-    nerd-fonts.ubuntu-mono
     nerd-fonts.iosevka
     noto-fonts
     noto-fonts-cjk-sans

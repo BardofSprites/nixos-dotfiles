@@ -13,4 +13,6 @@
   };
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  services.playerctld.enable = true;
 }
