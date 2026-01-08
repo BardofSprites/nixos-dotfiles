@@ -12,7 +12,7 @@ in {
       libreoffice
       kdePackages.kdenlive
       discord
-      spotify
+      obs-studio
       telegram-desktop
       gimp
     ];

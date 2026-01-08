@@ -12,7 +12,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     networking.hostName = "pocket";
-        # Enable networking
+    # Enable networking
     networking.networkmanager.enable = true;
 
     # Set your time zone.
@@ -41,6 +41,9 @@
         layout = "us";
         variant = "";
     };
+
+    # tailscale vpn
+    services.tailscale.enable = true;
 
     users.users.bard = {
         isNormalUser = true;

@@ -19,6 +19,7 @@ in {
           babel           # language support
           polyglossia     # better multilingual (Russian, Greek, etc.)
           tabu
+          titlesec
           capt-of
           savetrees
           dvipng;         # DVI → PNG tool

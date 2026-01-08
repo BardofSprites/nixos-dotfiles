@@ -33,6 +33,11 @@ in {
     services.logind.lidSwitchExternalPower = "lock";
     services.logind.lidSwitchDocked = "ignore";
 
+    # screen locking
+    programs.xss-lock.enable = true;
+    programs.slock.enable = true;
+    # services.xscreensaver.enable = true;
+
     # power management
     services.tlp = {
       enable = false;

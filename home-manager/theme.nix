@@ -12,20 +12,28 @@ in
 
   config = mkIf cfg.enable {
 
-    home.packages = with pkgs; [ dconf ];
+    home.packages = with pkgs; [
+      dconf
+      (pkgs.gruvbox-plus-icons.override { folder-color = "orange"; })
+    ];
 
     gtk = {
       enable = true;
 
       theme = {
-        name = "Materia-dark";
-        package = pkgs.materia-theme;
+        name = "Gruvbox-Material-Dark";
+        package = pkgs.gruvbox-material-gtk-theme;
       };
 
       iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
+        name = "gruvbox-dark";
+        package = pkgs.gruvbox-dark-icons-gtk;
       };
+
+      # iconTheme = {
+      #   name = "Papirus-Dark";
+      #   package = pkgs.papirus-icon-theme;
+      # };
 
       cursorTheme = {
         name = "Adwaita";
