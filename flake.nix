@@ -38,6 +38,23 @@
             }
           ];
         };
+        seraph = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/seraph/configuration.nix
+
+            # Integrate Home Manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+
+                users.bard = import ./home-manager/home-server.nix;
+              };
+            }
+          ];
+        };
       };
     };
 }
