@@ -11,7 +11,7 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
-    networking.hostName = "pocket";
+    networking.hostName = "leliel";
     # Enable networking
     networking.networkmanager.enable = true;
 

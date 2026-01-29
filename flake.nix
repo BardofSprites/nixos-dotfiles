@@ -19,10 +19,10 @@
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
-        pocket = lib.nixosSystem {
+        leliel = lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/pocket/configuration.nix
+            ./hosts/leliel/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {

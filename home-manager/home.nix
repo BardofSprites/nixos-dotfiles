@@ -85,8 +85,7 @@ in
     nerd-fonts.iosevka
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
-    noto-fonts-extra
+    noto-fonts-color-emoji
     corefonts
 
     # icons
