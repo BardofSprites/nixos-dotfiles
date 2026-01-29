@@ -89,6 +89,16 @@
     };
   };
 
+  # enable tailscale
+  services.tailscale.enable = true;
+
+  services.syncthing = {
+    enable = true;
+    user = "bard";
+    dataDir = "/home/bard/Sync";
+    configDir = "/home/bard/.config/syncthing";
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -101,6 +111,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }

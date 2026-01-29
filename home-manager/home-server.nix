@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/bard";
 
   # Match your NixOS version
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
 
