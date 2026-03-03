@@ -25,5 +25,9 @@ in {
           dvipng;         # DVI → PNG tool
       })
     ];
+
+    programs.zathura = {
+      enable = true;
+    };
   };
 }
