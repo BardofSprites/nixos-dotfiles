@@ -9,6 +9,7 @@
     ./stumpwm.nix
     ./xmonad.nix
     ./audio.nix
+    ./xorg.nix
   ];
 
   services.displayManager.ly = {
