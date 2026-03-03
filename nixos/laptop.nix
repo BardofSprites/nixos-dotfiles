@@ -13,6 +13,8 @@ in {
       acpi
     ];
 
+    hardware.graphics.enable = true;
+
     ############
     # touchpad #
     ############
@@ -24,9 +26,8 @@ in {
     # bad
     services.libinput.touchpad.tapping = false;
 
-    powerManagement.enable = true;
-    services.thermald.enable = true; 
-    services.power-profiles-daemon.enable = true;
+    powerManagement.powertop.enable = true;
+    services.thermald.enable = true;
 
     # lid close
     services.logind.lidSwitch = "suspend";
@@ -39,20 +40,45 @@ in {
     # services.xscreensaver.enable = true;
 
     # power management
+    services.power-profiles-daemon.enable = false;
     services.tlp = {
-      enable = false;
+      enable = true;
+
       settings = {
-        # CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-        CPU_DRIVER_OPMODE_ON_BAT="active"; # passive caps 400mhz
-        CPU_SCALING_GOVERNOR_ON_BAT="powersave";
+        # CPU
+        CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
+        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+
         CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
-        PLATFORM_PROFILE_ON_BAT = "balanced";
-        PLATFORM_PROFILE_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+
+        CPU_DRIVER_OPMODE_ON_AC = "active";
+        CPU_DRIVER_OPMODE_ON_BAT = "active";
+
+        # Platform profile (ThinkPad specific)
+        PLATFORM_PROFILE_ON_AC = "balanced";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+
+        # Runtime power management
         RUNTIME_PM_ON_AC = "auto";
         RUNTIME_PM_ON_BAT = "auto";
-        WIFI_PWR_ON_BAT = "off";
-	      WIFI_PWR_ON_AC = "off";
-	      NMI_WATCHDOG = "1"; 
+
+        # PCIe ASPM
+        PCIE_ASPM_ON_AC = "default";
+        PCIE_ASPM_ON_BAT = "powersave";
+
+        # WiFi powersave
+        WIFI_PWR_ON_AC = "off";
+        WIFI_PWR_ON_BAT = "on";
+
+        # SATA link power management
+        SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
+
+        # USB autosuspend
+        USB_AUTOSUSPEND = "1";
+
+        # Let CPU reach deep sleep
+        NMI_WATCHDOG = "0";
       };
     };
   };
