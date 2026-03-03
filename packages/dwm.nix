@@ -8,11 +8,11 @@ pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "BardofSprites";
     repo = "dwm";
-    rev = "90edc90a09b1fbb7a1cf3811454b070e4995741b";
-    sha256 = "1rzh259z61rr63w79a4an9gdbv9rra1s00ghmcvp14byzcmlfimm";
+    rev = "dad8545fc4a97199e997e0da452c970cd8ea9e7e";
+    sha256 = "0p3ad1khb1y0ymfsm0scqf0y975kij33cx87ypgwphdxqj7r67qa";
   };
 
-  patches = [ ../patches/dwm-laptop.patch ];
+  # patches = [ ../patches/dwm-laptop.patch ];
 
   buildInputs = [ 
     pkgs.pkgconf
