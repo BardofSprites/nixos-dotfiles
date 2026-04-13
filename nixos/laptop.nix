@@ -18,13 +18,12 @@ in {
     ############
     # touchpad #
     ############
-    services.libinput.enable = true;
     # up should be up and down should be down
-    services.libinput.touchpad.naturalScrolling = false;
+    # services.libinput.touchpad.naturalScrolling = false;
     # pressing two fingers in middle shouldn't be middle click
-    services.libinput.touchpad.middleEmulation = false;
+    # services.libinput.touchpad.middleEmulation = false;
     # bad
-    services.libinput.touchpad.tapping = false;
+    # services.libinput.touchpad.tapping = false;
 
     powerManagement.powertop.enable = true;
     services.thermald.enable = true;
