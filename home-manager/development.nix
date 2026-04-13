@@ -6,6 +6,7 @@
     python3
 
     # cli tools
+    neovim
     fzf
     imagemagick
     ffmpeg-full
