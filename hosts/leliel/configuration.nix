@@ -48,7 +48,7 @@
     users.users.bard = {
         isNormalUser = true;
         description = "bard";
-        extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" "storage" ];
+        extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" "storage" "input"];
         packages = with pkgs; [];
     };
 
