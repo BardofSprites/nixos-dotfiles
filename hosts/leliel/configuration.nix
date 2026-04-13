@@ -66,8 +66,9 @@
       syncthing.enable = true;
       print.enable = false;
       laptop.enable = true;
-      i3.enable = true;
+      i3.enable = false;
       fvwm.enable = false;
+      kde.enable = true;
     };
 
     system.stateVersion = "25.11";
