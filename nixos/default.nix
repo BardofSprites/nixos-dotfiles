@@ -12,13 +12,6 @@
     ./xorg.nix
   ];
 
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      animation = "doom";
-    };
-  };
-
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -41,5 +34,4 @@
 	# startupWMClass = "Emacs";
 	# mimeType = [ "x-scheme-handler/org-protocol" ];
   # };
-}  
-
+}

@@ -1,9 +1,5 @@
 { config, pkgs, zen-browser, ...}:
 let
-  bardDmenu = import ../packages/dmenu.nix { inherit pkgs; };
-  bardSt = import ../packages/st.nix { inherit pkgs; };
-  bardDwm = import ../packages/dwm.nix { inherit pkgs; };
-  bardDwmblocks = import ../packages/dwmblocks.nix { inherit pkgs; };
   bardCoomer = import ../packages/coomer.nix { inherit pkgs; };
 in
 {
@@ -16,6 +12,7 @@ in
     ./latex.nix
     # ./uni.nix
     ./theme.nix
+    ./xorg-user.nix
   ];
   home.username = "bard";
   home.homeDirectory = "/home/bard";
@@ -42,25 +39,20 @@ in
 
     # www
     librewolf
-    firefox
+    # firefox
     (zen-browser.packages.${pkgs.stdenv.system}.default)
 
     # files
-    pcmanfm
-    gparted
-    baobab
+    # pcmanfm
+    # gparted
+    # baobab
 
     # terminal
-    rxvt-unicode
     btop
     pass
 
     # suckless utilities
-    bardDwm
-    bardDwmblocks
-    bardDmenu
-    bardSt
-    nsxiv
+
 
     # media
     mpv
@@ -74,11 +66,6 @@ in
     unzip
 
     # xorg related
-    xorg.xmodmap
-    xclip
-    maim
-    xdotool
-    picom
     bardCoomer
 
     # fonts
@@ -102,6 +89,7 @@ in
     dunst.enable = true;
     heavy.enable = true;
     latex.enable = true;
+    xorg-user.enable = false;
     # uni.enable = true;
   };
 }
