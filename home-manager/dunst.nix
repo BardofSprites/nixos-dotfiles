@@ -31,18 +31,18 @@ in {
           progress_bar_max_width = 300;
 
           indicate_hidden = true;
-          transparency = 0;
+          transparency = 10;
           separator_height = 2;
           padding = 8;
           horizontal_padding = 8;
           text_icon_padding = 0;
           frame_width = 3;
-          frame_color = "#ffffff";
+          frame_color = "#b8bb26";
           gap_size = 0;
           separator_color = "frame";
           sort = true;
 
-          font = "Iosevka Comfy 16";
+          font = "Iosevka Comfy Motion Duo 14";
           line_height = 0;
           markup = "full";
           format = "<b>%s</b>\n%b";
@@ -90,15 +90,15 @@ in {
         };
 
         urgency_normal = {
-          background = "#000000";
-          foreground = "#ffffff";
+          background = "#1d2021";
+          foreground = "#ebdbb2";
           timeout = 10;
           default_icon = "${config.home.homeDirectory}/.fvwm/icon/Yoritsuki/Kanban (sign).png";
         };
 
         urgency_critical = {
-          background = "#9d1f1f";
-          foreground = "#ffffff";
+          background = "#cc241d";
+          foreground = "#ebdbb2";
           frame_color = "#ff0000";
           timeout = 0;
         };
