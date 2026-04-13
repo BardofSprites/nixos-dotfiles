@@ -12,9 +12,9 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "0p3ad1khb1y0ymfsm0scqf0y975kij33cx87ypgwphdxqj7r67qa";
   };
 
-  # patches = [ ../patches/dwm-laptop.patch ];
+  patches = [ ../patches/dwm-laptop.patch ];
 
-  buildInputs = [ 
+  buildInputs = [
     pkgs.pkgconf
     pkgs.xorg.libX11
     pkgs.xorg.libXft
