@@ -11,13 +11,13 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xlibre-overlay = {
-      url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # xlibre-overlay = {
+    #   url = "git+https://codeberg.org/takagemacoed/xlibre-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
-  outputs = { self, nixpkgs, home-manager, xlibre-overlay, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -29,7 +29,7 @@
             ./hosts/leliel/configuration.nix
 
             # xlibre nix modules
-            xlibre-overlay.nixosModules.overlay-xlibre-xserver
+            # xlibre-overlay.nixosModules.overlay-xlibre-xserver
 
             home-manager.nixosModules.home-manager
             {
