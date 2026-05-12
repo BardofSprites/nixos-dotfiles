@@ -66,6 +66,8 @@
   environment.systemPackages = with pkgs; [
     vim
     tmux
+    python3Packages.python-kasa
+    podman-compose
   #  wget
   ];
 
@@ -97,6 +99,22 @@
     user = "bard";
     dataDir = "/home/bard/Sync";
     configDir = "/home/bard/.config/syncthing";
+    openDefaultPorts = true;
+    guiAddress = "0.0.0.0:8384";
+  };
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  services.navidrome = {
+    enable = true;
+    settings = {
+      MusicFolder = "/mnt/music/";
+	  Address = "0.0.0.0";
+      Port = 4533;
+    };
   };
 
   # Open ports in the firewall.
@@ -104,6 +122,13 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # 8384 - syncthing
+  # 4110 - koito (scrobbler)
+  # 8123 - home assistant
+  # 4533 - navidrome
+  networking.firewall.allowedTCPPorts = [ 80 443 8080 8384 4110 8123 4533 ];
+  networking.firewall.allowedUDPPorts = [ 9999 ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
