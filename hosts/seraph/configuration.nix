@@ -4,6 +4,16 @@
 
 { config, pkgs, ... }:
 
+let
+  orgFilter = pkgs.writeShellScript "org2html" ''
+    case "$1" in
+      *.org) exec ${pkgs.pandoc}/bin/pandoc -f org -t html ;;
+      *.md|*.markdown) exec ${pkgs.pandoc}/bin/pandoc -f markdown -t html ;;
+      *.html|*.htm) exec ${pkgs.coreutils}/cat ;;
+      *) exec ${pkgs.coreutils}/cat ;;
+    esac
+    '';
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -51,7 +61,7 @@
   users.users.bard = {
     isNormalUser = true;
     description = "bard";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "navidrome" ];
     packages = with pkgs; [];
   };
 
@@ -65,8 +75,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    emacs
     tmux
-    python3Packages.python-kasa
     podman-compose
   #  wget
   ];
@@ -112,10 +122,36 @@
     enable = true;
     settings = {
       MusicFolder = "/mnt/music/";
-	  Address = "0.0.0.0";
+      Address = "0.0.0.0";
       Port = 4533;
+      ListenBrainz.Enabled = true;
+      ListenBrainz.BaseUrl = "https://koito.bardman.dev/apis/listenbrainz/1";
     };
   };
+
+  services.cgit."git.bardman.dev" = {
+    enable = true;
+    scanPath = "/srv/git";
+    settings = {
+      root-title = "Bardman's Git Repos";
+      root-desc = "Personal git repositories";
+      readme = [":README.org" ":README.md" ":README"];
+      # about-filter = "${pkgs.cgit}/lib/cgit/filters/about-formatting.sh";
+      about-filter = "${orgFilter}";
+    };
+    gitHttpBackend.checkExportOkFiles = false;
+  };
+  
+  services.nginx.virtualHosts."git.bardman.dev" = {
+      listen = [{ addr = "0.0.0.0"; port = 6969; extraParameters = ["default_server"]; }];
+  };
+
+  # services.n8n = {
+  #   enable = true;
+
+  #   environment = {
+  #     N8N_PORT = 5678;
+  #     WEBHOOK_URL
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -127,7 +163,9 @@
   # 4110 - koito (scrobbler)
   # 8123 - home assistant
   # 4533 - navidrome
-  networking.firewall.allowedTCPPorts = [ 80 443 8080 8384 4110 8123 4533 ];
+  # 6969 - cgit
+  # 4242 - calibre
+  networking.firewall.allowedTCPPorts = [ 80 443 8080 8384 4110 8123 4533 6969 4242 ];
   networking.firewall.allowedUDPPorts = [ 9999 ];
 
   # This value determines the NixOS release from which the default
