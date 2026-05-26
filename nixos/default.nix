@@ -9,6 +9,7 @@
     ./stumpwm.nix
     ./xmonad.nix
     ./audio.nix
+    ./xorg.nix
   ];
 
   services.displayManager.ly = {
@@ -21,7 +22,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-gtk2;
   };
 
   environment.systemPackages = with pkgs; [

@@ -6,12 +6,12 @@
     python3
 
     # cli tools
+    neovim
     fzf
     imagemagick
     ffmpeg-full
     curl
     wget
-    direnv
     devenv
     stow
     ripgrep
@@ -19,5 +19,10 @@
     tree
     jq
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
 }

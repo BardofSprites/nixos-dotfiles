@@ -22,8 +22,20 @@ in {
           titlesec
           capt-of
           savetrees
+          blindtext
+          cyrillic
+	      lh              # Cyrillic LH fonts
+          marginfix
+	      marginnote
+	      mdframed        # \newmdenv
+	      zref            # mdframed dependency
+	      needspace       # mdframed dependency
           dvipng;         # DVI → PNG tool
       })
     ];
+
+    programs.zathura = {
+      enable = true;
+    };
   };
 }

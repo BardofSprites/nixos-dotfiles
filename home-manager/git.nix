@@ -10,11 +10,13 @@ in {
   config = mkIf cfg.enable { 
     programs.git = {
 	    enable = true;
-	    userName = "BardofSprites";
-	    userEmail = "bard";
-	    extraConfig = {
-	      init = { defaultBranch = "master"; };
-      };
+		settings = {
+      		user = {
+        		name  = "BardofSprites";
+        		email = "develop.bard@gmail.com";
+      		};
+      	init.defaultBranch = "master";
+    	};
     };
 
     programs.gh.enable = true;

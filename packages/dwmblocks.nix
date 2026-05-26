@@ -12,7 +12,7 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "0hqnj7fkdgivviwl0f26zpfd3pjxmpjp39gmzi4cpbjrrb1g9j5z";
   };
 
-  patches = [ ../patches/dwmblocks-laptop-minimal.patch ];
+  patches = [ ../patches/dwmblocks-laptop.patch ];
 
   buildInputs = [ 
     pkgs.pkgconf
