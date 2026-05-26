@@ -68,7 +68,7 @@
       laptop.enable = true;
       i3.enable = false;
       fvwm.enable = false;
-      kde.enable = true;
+      xorg.enable = true;
     };
 
     system.stateVersion = "25.11";
