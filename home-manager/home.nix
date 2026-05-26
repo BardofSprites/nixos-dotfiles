@@ -10,6 +10,7 @@ in
     ./dunst.nix
     ./heavy-applications.nix
     ./latex.nix
+    ./typst.nix
     # ./uni.nix
     ./theme.nix
     ./xorg-user.nix
@@ -89,7 +90,8 @@ in
     dunst.enable = true;
     heavy.enable = true;
     latex.enable = true;
-    xorg-user.enable = false;
+    typst.enable = true;
+    xorg-user.enable = true;
     # uni.enable = true;
   };
 }
