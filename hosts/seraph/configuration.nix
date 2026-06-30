@@ -129,6 +129,14 @@ in
     };
   };
 
+  services.miniflux = {
+	enable = true;
+	adminCredentialsFile = "/etc/miniflux-admin";
+	config = {
+	  LISTEN_ADDR = "0.0.0.0:7676";
+	};
+  };
+
   services.cgit."git.bardman.dev" = {
     enable = true;
     scanPath = "/srv/git";
@@ -165,7 +173,9 @@ in
   # 4533 - navidrome
   # 6969 - cgit
   # 4242 - calibre
-  networking.firewall.allowedTCPPorts = [ 80 443 8080 8384 4110 8123 4533 6969 4242 ];
+  # 7676 - miniflux (rss)
+  # 7200 - koreader sync (kosync)
+  networking.firewall.allowedTCPPorts = [ 80 443 8080 8384 4110 8123 4533 6969 4242 7676 7200 ];
   networking.firewall.allowedUDPPorts = [ 9999 ];
 
   # This value determines the NixOS release from which the default
