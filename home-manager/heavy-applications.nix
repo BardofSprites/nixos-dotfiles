@@ -15,6 +15,7 @@ in {
       obs-studio
       telegram-desktop
       gimp
+      zotero
     ];
   };
 }

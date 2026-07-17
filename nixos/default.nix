@@ -10,6 +10,7 @@
     ./xmonad.nix
     ./audio.nix
     ./xorg.nix
+    ./wayland.nix
   ];
 
   programs.gnupg.agent = {

@@ -32,7 +32,7 @@ in
     home-manager
 
     # the real OS
-    emacs-gtk
+    emacs-pgtk
     # emacs spellcheck
     hunspell
     hunspellDicts.en_US
@@ -44,9 +44,9 @@ in
     (zen-browser.packages.${pkgs.stdenv.system}.default)
 
     # files
-    # pcmanfm
-    # gparted
-    # baobab
+    pcmanfm
+    gparted
+    baobab
 
     # terminal
     btop
@@ -75,6 +75,7 @@ in
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     corefonts
+    terminus_font
 
     # icons
     material-design-icons
@@ -91,7 +92,7 @@ in
     heavy.enable = true;
     latex.enable = true;
     typst.enable = true;
-    xorg-user.enable = true;
+    xorg-user.enable = false;
     # uni.enable = true;
   };
 }

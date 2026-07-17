@@ -48,7 +48,7 @@
     users.users.bard = {
         isNormalUser = true;
         description = "bard";
-        extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" "storage" "input"];
+        extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" "storage" "input" "video"];
         packages = with pkgs; [];
     };
 
@@ -68,7 +68,8 @@
       laptop.enable = true;
       i3.enable = false;
       fvwm.enable = false;
-      xorg.enable = true;
+      xorg.enable = false;
+      wayland.enable = true;
     };
 
     system.stateVersion = "25.11";
