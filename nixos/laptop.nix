@@ -29,8 +29,8 @@ in {
     services.thermald.enable = true;
 
     # lid close
-    services.logind.settings.Login.HandleLidSwitch = "ignore";
-    services.logind.settings.Login.HandleLidSwitchDocked = "ignore";
+    services.logind.settings.Login.HandleLidSwitch = "suspend";
+    services.logind.settings.Login.HandleLidSwitchDocked = "suspend";
     services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
     # screen locking
