@@ -32,15 +32,13 @@ in
     home-manager
 
     # the real OS
-    emacs-pgtk
+    emacs
     # emacs spellcheck
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
 
     # www
-    librewolf
-    # firefox
     (zen-browser.packages.${pkgs.stdenv.system}.default)
 
     # files
@@ -75,7 +73,6 @@ in
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     corefonts
-    terminus_font
 
     # icons
     material-design-icons
@@ -92,7 +89,7 @@ in
     heavy.enable = true;
     latex.enable = true;
     typst.enable = true;
-    xorg-user.enable = false;
+    xorg-user.enable = true;
     # uni.enable = true;
   };
 }

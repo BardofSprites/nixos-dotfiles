@@ -37,7 +37,7 @@ in {
           horizontal_padding = 8;
           text_icon_padding = 0;
           frame_width = 3;
-          frame_color = "#b8bb26";
+          frame_color = "#646464";
           gap_size = 0;
           separator_color = "frame";
           sort = true;
@@ -65,7 +65,7 @@ in {
           history_length = 20;
 
           dmenu = "dmenu -p dunst:";
-          browser = "librewolf";
+          browser = "zen";
           always_run_script = true;
           title = "Dunst";
           class = "Dunst";
@@ -90,15 +90,15 @@ in {
         };
 
         urgency_normal = {
-          background = "#1d2021";
-          foreground = "#ebdbb2";
+          background = "#000000";
+          foreground = "#ffffff";
           timeout = 10;
           default_icon = "${config.home.homeDirectory}/.fvwm/icon/Yoritsuki/Kanban (sign).png";
         };
 
         urgency_critical = {
-          background = "#cc241d";
-          foreground = "#ebdbb2";
+          background = "#9d1f1f";
+          foreground = "#ffffff";
           frame_color = "#ff0000";
           timeout = 0;
         };

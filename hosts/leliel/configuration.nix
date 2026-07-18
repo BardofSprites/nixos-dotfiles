@@ -68,8 +68,8 @@
       laptop.enable = true;
       i3.enable = false;
       fvwm.enable = false;
-      xorg.enable = false;
-      wayland.enable = true;
+      xorg.enable = true;
+      wayland.enable = false;
     };
 
     system.stateVersion = "25.11";
