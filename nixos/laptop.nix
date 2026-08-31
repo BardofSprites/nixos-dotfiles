@@ -28,6 +28,8 @@ in {
     powerManagement.powertop.enable = true;
     services.thermald.enable = true;
 
+    # services.displayManager.ly.enable = true;
+
     # lid close
     services.logind.settings.Login.HandleLidSwitch = "suspend";
     services.logind.settings.Login.HandleLidSwitchDocked = "suspend";

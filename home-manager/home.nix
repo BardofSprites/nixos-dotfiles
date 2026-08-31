@@ -14,6 +14,7 @@ in
     # ./uni.nix
     ./theme.nix
     ./xorg-user.nix
+    ./wayland-user.nix
   ];
   home.username = "bard";
   home.homeDirectory = "/home/bard";
@@ -32,7 +33,7 @@ in
     home-manager
 
     # the real OS
-    emacs
+    emacs-pgtk
     # emacs spellcheck
     hunspell
     hunspellDicts.en_US
@@ -89,7 +90,8 @@ in
     heavy.enable = true;
     latex.enable = true;
     typst.enable = true;
-    xorg-user.enable = true;
+    xorg-user.enable = false;
+    wayland-user.enable = true;
     # uni.enable = true;
   };
 }

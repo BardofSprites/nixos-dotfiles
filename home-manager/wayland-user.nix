@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.bardConfig.xorg-user;
+  cfg = config.bardConfig.wayland-user;
 in
 {
   options.bardConfig.wayland-user = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 with lib;
 let cfg = config.bardConfig.wayland;
 in {
@@ -7,7 +7,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.niri = {
+    programs.sway = {
       enable = true;
     };
 
@@ -17,16 +17,13 @@ in {
         xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk
       ];
-      config.niri = {
-        default = [ "gnome" "gtk" ];
-      };
     };
 
     services.greetd = {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
           user    = "greeter";
         };
       };
@@ -45,12 +42,9 @@ in {
       slurp
       swappy
       wf-recorder
-      fuzzel
-      waybar
       libnotify
-      swayidle
-      swaylock
-      swww
+      swaybg
+      i3status
       kanshi
       wdisplays
       gsettings-desktop-schemas
@@ -58,6 +52,7 @@ in {
       brightnessctl
       playerctl
       foot
+      fuzzel
       nsxiv # image viewer from x11
       xwayland-satellite
     ];
@@ -70,7 +65,7 @@ in {
       SDL_VIDEODRIVER                     = "wayland";
       CLUTTER_BACKEND                     = "wayland";
       GDK_BACKEND                         = "wayland,x11";
-      XDG_CURRENT_DESKTOP                 = "niri";
+      XDG_CURRENT_DESKTOP                 = "sway";
       XDG_SESSION_TYPE                    = "wayland";
     };
 
@@ -79,8 +74,5 @@ in {
       enable32Bit = true;
     };
 
-    services.logind = {
-      lidSwitch   = "suspend";
-    };
   };
 }
