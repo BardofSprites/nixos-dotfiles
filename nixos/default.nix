@@ -11,6 +11,7 @@
     ./audio.nix
     ./xorg.nix
     ./wayland.nix
+    ./mysql.nix
   ];
 
   programs.gnupg.agent = {

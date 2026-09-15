@@ -18,6 +18,10 @@
     fd
     tree
     jq
+
+    # ide for school
+    jetbrains.datagrip
+    jetbrains.idea
   ];
 
   programs.direnv = {
