@@ -13,12 +13,11 @@ in
     ./typst.nix
     # ./uni.nix
     ./theme.nix
-    ./xorg-user.nix
     ./wayland-user.nix
   ];
   home.username = "bard";
   home.homeDirectory = "/home/bard";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   home.sessionPath = [
     "$HOME/.local/bin/scripts"
@@ -65,9 +64,6 @@ in
     zip
     unzip
 
-    # xorg related
-    bardCoomer
-
     # fonts
     nerd-fonts.iosevka
     noto-fonts
@@ -90,7 +86,6 @@ in
     heavy.enable = true;
     latex.enable = true;
     typst.enable = true;
-    xorg-user.enable = false;
     wayland-user.enable = true;
     # uni.enable = true;
   };

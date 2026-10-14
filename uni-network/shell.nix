@@ -9,12 +9,12 @@
       (python3.withPackages (ps: [ ps.dbus-python ])) # Run embedded Python code
       coreutils # Needs uname to identify architecture
       gnutar # Needed to extract emebedded archive
-      xorg.libX11 # for GUI
+      # xorg.libX11 # for GUI
       openssl # Required during Python import
       simpleTpmPk11 # Unknown use
       which # Used by shell script to find programs
       xdg-utils # Used by Python script to open links
-      xorg.xwininfo # Unknown use
+      # xorg.xwininfo # Unknown use
     ]);
   runScript = ./SecureW2_JoinNow.run;
 }).env

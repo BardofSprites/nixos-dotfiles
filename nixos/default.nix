@@ -9,7 +9,6 @@
     ./stumpwm.nix
     ./xmonad.nix
     ./audio.nix
-    ./xorg.nix
     ./wayland.nix
     ./mysql.nix
   ];

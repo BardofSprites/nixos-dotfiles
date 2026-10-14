@@ -45,6 +45,11 @@
     # tailscale vpn
     services.tailscale.enable = true;
 
+    # gnome keyring
+    services.gnome.gnome-keyring.enable = true;
+
+    security.pam.services.login.enableGnomeKeyring = true;
+
     users.users.bard = {
         isNormalUser = true;
         description = "bard";
@@ -68,10 +73,10 @@
       laptop.enable = true;
       i3.enable = false;
       fvwm.enable = false;
-      xorg.enable = false;
+      mysql.enable = true;
       wayland.enable = true;
     };
 
-    system.stateVersion = "25.11";
+    system.stateVersion = "26.05";
 
 }
